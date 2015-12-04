@@ -1,0 +1,158 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://ec2.ap-southeast-2.amazonaws.com/
+    body:
+      encoding: UTF-8
+      string: Action=DescribeInstances&Filter.1.Name=instance-state-name&Filter.1.Value.1=running&Version=2015-10-01
+    headers:
+      Content-Type:
+      - application/x-www-form-urlencoded; charset=utf-8
+      Accept-Encoding:
+      - ''
+      User-Agent:
+      - aws-sdk-ruby2/2.2.3 ruby/2.2.3 x86_64-darwin14
+      X-Amz-Date:
+      - 20151204T044057Z
+      Host:
+      - ec2.ap-southeast-2.amazonaws.com
+      X-Amz-Content-Sha256:
+      - ed94b00bef0829e129f7f32f960d4d3d64396b37d914f5c87e349150c32c2522
+      Authorization:
+      - "<AUTHORIZATION>"
+      Content-Length:
+      - '102'
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - text/xml;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      Date:
+      - Fri, 04 Dec 2015 04:40:56 GMT
+      Server:
+      - AmazonEC2
+    body:
+      encoding: UTF-8
+      string: |-
+        <?xml version="1.0" encoding="UTF-8"?>
+        <DescribeInstancesResponse xmlns="http://ec2.amazonaws.com/doc/2015-10-01/">
+            <requestId>e021b163-8183-46d6-bb79-8f9fb6464978</requestId>
+            <reservationSet>
+                <item>
+                    <reservationId>r-f51f0a29</reservationId>
+                    <ownerId>492770473521</ownerId>
+                    <groupSet/>
+                    <instancesSet>
+                        <item>
+                            <instanceId>i-804e245f</instanceId>
+                            <imageId>ami-187a247b</imageId>
+                            <instanceState>
+                                <code>16</code>
+                                <name>running</name>
+                            </instanceState>
+                            <privateDnsName>ip-172-31-2-63.ap-southeast-2.compute.internal</privateDnsName>
+                            <dnsName>ec2-52-62-42-171.ap-southeast-2.compute.amazonaws.com</dnsName>
+                            <reason/>
+                            <keyName>the_adam</keyName>
+                            <amiLaunchIndex>0</amiLaunchIndex>
+                            <productCodes/>
+                            <instanceType>t2.micro</instanceType>
+                            <launchTime>2015-12-04T04:40:18.000Z</launchTime>
+                            <placement>
+                                <availabilityZone>ap-southeast-2a</availabilityZone>
+                                <groupName/>
+                                <tenancy>default</tenancy>
+                            </placement>
+                            <monitoring>
+                                <state>disabled</state>
+                            </monitoring>
+                            <subnetId>subnet-5ff7683a</subnetId>
+                            <vpcId>vpc-d4cd70b1</vpcId>
+                            <privateIpAddress>172.31.2.63</privateIpAddress>
+                            <ipAddress>52.62.42.171</ipAddress>
+                            <sourceDestCheck>true</sourceDestCheck>
+                            <groupSet>
+                                <item>
+                                    <groupId>sg-6ec8860b</groupId>
+                                    <groupName>default</groupName>
+                                </item>
+                            </groupSet>
+                            <architecture>x86_64</architecture>
+                            <rootDeviceType>ebs</rootDeviceType>
+                            <rootDeviceName>/dev/sda1</rootDeviceName>
+                            <blockDeviceMapping>
+                                <item>
+                                    <deviceName>/dev/sda1</deviceName>
+                                    <ebs>
+                                        <volumeId>vol-3b57e7f1</volumeId>
+                                        <status>attached</status>
+                                        <attachTime>2015-12-04T04:40:22.000Z</attachTime>
+                                        <deleteOnTermination>true</deleteOnTermination>
+                                    </ebs>
+                                </item>
+                            </blockDeviceMapping>
+                            <virtualizationType>hvm</virtualizationType>
+                            <clientToken/>
+                            <hypervisor>xen</hypervisor>
+                            <networkInterfaceSet>
+                                <item>
+                                    <networkInterfaceId>eni-2062d847</networkInterfaceId>
+                                    <subnetId>subnet-5ff7683a</subnetId>
+                                    <vpcId>vpc-d4cd70b1</vpcId>
+                                    <description/>
+                                    <ownerId>492770473521</ownerId>
+                                    <status>in-use</status>
+                                    <macAddress>02:17:7e:6c:83:0d</macAddress>
+                                    <privateIpAddress>172.31.2.63</privateIpAddress>
+                                    <privateDnsName>ip-172-31-2-63.ap-southeast-2.compute.internal</privateDnsName>
+                                    <sourceDestCheck>true</sourceDestCheck>
+                                    <groupSet>
+                                        <item>
+                                            <groupId>sg-6ec8860b</groupId>
+                                            <groupName>default</groupName>
+                                        </item>
+                                    </groupSet>
+                                    <attachment>
+                                        <attachmentId>eni-attach-f34218cd</attachmentId>
+                                        <deviceIndex>0</deviceIndex>
+                                        <status>attached</status>
+                                        <attachTime>2015-12-04T04:40:18.000Z</attachTime>
+                                        <deleteOnTermination>true</deleteOnTermination>
+                                    </attachment>
+                                    <association>
+                                        <publicIp>52.62.42.171</publicIp>
+                                        <publicDnsName>ec2-52-62-42-171.ap-southeast-2.compute.amazonaws.com</publicDnsName>
+                                        <ipOwnerId>amazon</ipOwnerId>
+                                    </association>
+                                    <privateIpAddressesSet>
+                                        <item>
+                                            <privateIpAddress>172.31.2.63</privateIpAddress>
+                                            <privateDnsName>ip-172-31-2-63.ap-southeast-2.compute.internal</privateDnsName>
+                                            <primary>true</primary>
+                                            <association>
+                                            <publicIp>52.62.42.171</publicIp>
+                                            <publicDnsName>ec2-52-62-42-171.ap-southeast-2.compute.amazonaws.com</publicDnsName>
+                                            <ipOwnerId>amazon</ipOwnerId>
+                                            </association>
+                                        </item>
+                                    </privateIpAddressesSet>
+                                </item>
+                            </networkInterfaceSet>
+                            <ebsOptimized>false</ebsOptimized>
+                        </item>
+                    </instancesSet>
+                </item>
+            </reservationSet>
+        </DescribeInstancesResponse>
+    http_version: 
+  recorded_at: Fri, 04 Dec 2015 04:40:57 GMT
+recorded_with: VCR 2.9.3

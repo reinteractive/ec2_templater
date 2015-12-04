@@ -1,0 +1,49 @@
+global
+  daemon
+  maxconn 256
+
+defaults
+  mode http
+  timeout connect 5000ms
+  timeout client 50000ms
+  timeout server 50000ms
+
+frontend app_server
+    mode http
+    maxconn 4096
+    bind 0.0.0.0:80
+
+    # Backends: hdr_end for ends with, and "-i" to ignore case
+    <%- unless @groups[:prod_app_servers].empty? -%>
+    use_backend prod-app if { hdr_end(host) -i -- prod.example.com }
+    <%- end -%>
+    <%- unless @groups[:staging_app_servers].empty? -%>
+    use_backend staging-app if { hdr_end(host) -i -- staging.example.com }
+    <%- end -%>
+    <%- unless @groups[:monitoring_servers].empty? -%>
+    use_backend monitoring if { hdr_end(host) -i -- monitoring.example.com }
+    <%- end -%>
+
+<%- unless @groups[:prod_app_servers].empty? -%>
+backend prod-app
+    description Prod app servers
+    <%- for server in @groups[:prod_app_servers] -%>
+    server <%= server.private_dns_name %> <%= server.private_ip_address%>:<%= @app_port %> maxconn 20 check
+    <%- end -%>
+<%- end -%>
+
+<%- unless @groups[:staging_app_servers].empty? -%>
+backend staging-app
+    description Staging app server
+    <%- for server in @groups[:staging_app_servers] -%>
+    server <%= server.private_dns_name %> <%= server.private_ip_address%>:<%= @app_port %> maxconn 20 check
+    <%- end -%>
+<%- end -%>
+
+<%- unless @groups[:monitoring_servers].empty? -%>
+backend monitoring
+    description Monitoring app servers
+    <%- for server in @groups[:monitoring_servers] -%>
+    server <%= server.private_dns_name %> <%= server.private_ip_address%>:<%= @monitoring_port %> maxconn 20 check
+    <%- end -%>
+<%- end -%>

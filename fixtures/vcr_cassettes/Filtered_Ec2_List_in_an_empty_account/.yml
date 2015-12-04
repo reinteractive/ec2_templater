@@ -1,0 +1,53 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://ec2.ap-southeast-2.amazonaws.com/
+    body:
+      encoding: UTF-8
+      string: Action=DescribeInstances&Filter.1.Name=instance-state-name&Filter.1.Value.1=running&Version=2015-10-01
+    headers:
+      Content-Type:
+      - application/x-www-form-urlencoded; charset=utf-8
+      Accept-Encoding:
+      - ''
+      User-Agent:
+      - aws-sdk-ruby2/2.2.3 ruby/2.2.3 x86_64-darwin14
+      X-Amz-Date:
+      - 20151204T044017Z
+      Host:
+      - ec2.ap-southeast-2.amazonaws.com
+      X-Amz-Content-Sha256:
+      - ed94b00bef0829e129f7f32f960d4d3d64396b37d914f5c87e349150c32c2522
+      Authorization:
+      - "<AUTHORIZATION>"
+      Content-Length:
+      - '102'
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - text/xml;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      Date:
+      - Fri, 04 Dec 2015 04:40:17 GMT
+      Server:
+      - AmazonEC2
+    body:
+      encoding: UTF-8
+      string: |-
+        <?xml version="1.0" encoding="UTF-8"?>
+        <DescribeInstancesResponse xmlns="http://ec2.amazonaws.com/doc/2015-10-01/">
+            <requestId>b778aae6-e7b6-48b0-b8ca-010c87616079</requestId>
+            <reservationSet/>
+        </DescribeInstancesResponse>
+    http_version: 
+  recorded_at: Fri, 04 Dec 2015 04:40:18 GMT
+recorded_with: VCR 2.9.3

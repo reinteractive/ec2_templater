@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+require 'ec2_templater'
+
+Ec2Templater::CommandLine.run

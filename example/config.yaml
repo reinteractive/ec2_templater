@@ -1,0 +1,19 @@
+template: './example/haproxy.cfg.erb'
+target: '/tmp/ec2_templated.haproxy.cfg'
+interval: 60
+notify_cmd: 'touch /tmp/ec2_templater_has_run'
+
+vars:
+  app_port: 3000
+  monitoring_port: 9494
+
+groups:
+  prod_app_servers:
+    tag:Environment: Production
+    tag:Role: app
+  staging_app_servers:
+    tag:Environment: Staging
+    tag:Role: app
+  monitoring_servers:
+    tag:Environment: Production
+    tag:Role: app
