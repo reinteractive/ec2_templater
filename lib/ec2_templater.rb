@@ -9,4 +9,10 @@ module Ec2Templater
       system(config['notify_cmd'])
     end
   end
+
+  def self.logger
+    @logger ||= Logger.new($stdout).tap do |log|
+      log.progname = 'ec2_templater'
+    end
+  end
 end
