@@ -10,6 +10,8 @@ updates based on instances that are available filtered by tag.
 
 For a full example, see the 'example' directory.
 
+Note: AWS_REGION must be set by ENV var.
+
 ## Groupings
 
 You must provide a way of grouping EC2's by configuring groups.
@@ -67,6 +69,10 @@ Example @groups content:
       site_backends: [ec2_instance, ...],
       kibana_backends: [ec2_instance, ..]
     }
+
+Example invocation:
+
+    $ AWS_REGION=ap-southeast-2 bundle exec ec2_templater --config example/config.yaml
 
 ## Installation
 
