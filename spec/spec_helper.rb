@@ -1,5 +1,7 @@
 $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 require 'vcr'
+require 'aws_helpers'
+require 'pry'
 
 VCR.configure do |c|
   c.hook_into :webmock
@@ -11,28 +13,31 @@ VCR.configure do |c|
   c.filter_sensitive_data('<AUTHORIZATION>') do |interaction|
     interaction.request.headers['Authorization'].first
   end
-  c.default_cassette_options = { record: :none }
+  c.default_cassette_options = { record: :all }
 end
 
-module AwsHelpers
-  def self.start_instance(client, key_pair_name)
-    run_instance_response = client.run_instances(
-      image_id: 'ami-187a247b', # ubuntu 14.04
-      instance_type: 't2.micro', min_count: 1, max_count: 1,
-      key_name: key_pair_name
-    )
 
-    instance_id = run_instance_response.instances[0].instance_id
-    wait_for_instance(client, instance_id)
-    instance_id
-  end
+RSpec.configure do |config|
+  config.add_setting :instance_id
 
-  # Wait for 0 second for when vcr is running, then standard 30s delay if fails
-  def self.wait_for_instance(client, instance_id)
-    client.wait_until(:instance_running, instance_ids: [instance_id]) do |w|
-      w.delay = 0
+  config.before(:suite) do
+    VCR.use_cassette 'ec2_run_instance' do
+      instance_id = AwsHelpers.start_instance(client, 'the_adam')
+      RSpec.configuration.instance_id = instance_id
+
+      instance = Aws::EC2::Instance.new(id: instance_id, client: client)
+      instance.create_tags(tags: [
+        { key: 'Environment', value: 'Staging' },
+        { key: 'Role', value: 'app' }
+      ])
     end
-  rescue Waiters::Errors::WaiterFailed
-    client.wait_until(:instance_running, instance_ids: [instance_id])
+  end
+
+  config.after(:suite) do
+    VCR.use_cassette 'ec2_terminate_instance' do
+      instance_id = RSpec.configuration.instance_id
+      client.terminate_instances(instance_ids: [instance_id])
+    end
   end
 end
+

@@ -5,7 +5,7 @@ http_interactions:
     uri: https://ec2.ap-southeast-2.amazonaws.com/
     body:
       encoding: UTF-8
-      string: Action=TerminateInstances&InstanceId.1=i-914e244e&Version=2015-10-01
+      string: Action=TerminateInstances&InstanceId.1=i-e094e03f&Version=2015-10-01
     headers:
       Content-Type:
       - application/x-www-form-urlencoded; charset=utf-8
@@ -14,11 +14,11 @@ http_interactions:
       User-Agent:
       - aws-sdk-ruby2/2.2.3 ruby/2.2.3 x86_64-darwin14
       X-Amz-Date:
-      - 20151204T044012Z
+      - 20151207T062038Z
       Host:
       - ec2.ap-southeast-2.amazonaws.com
       X-Amz-Content-Sha256:
-      - fe350414313dc978c88eb8d9f2597abf4cb6ff38ed7a8b22a0cdfb7ef3537457
+      - 49425530df33c5d2ce5f8e9c477a9fa01bc1a48cba0d205becb046f94685167b
       Authorization:
       - "<AUTHORIZATION>"
       Content-Length:
@@ -37,7 +37,7 @@ http_interactions:
       Vary:
       - Accept-Encoding
       Date:
-      - Fri, 04 Dec 2015 04:40:12 GMT
+      - Mon, 07 Dec 2015 06:20:30 GMT
       Server:
       - AmazonEC2
     body:
@@ -45,10 +45,10 @@ http_interactions:
       string: |-
         <?xml version="1.0" encoding="UTF-8"?>
         <TerminateInstancesResponse xmlns="http://ec2.amazonaws.com/doc/2015-10-01/">
-            <requestId>1bcce72a-66a6-46db-b36c-317848a1185d</requestId>
+            <requestId>dd3e2501-6807-48ce-b8b7-e84a4a930cff</requestId>
             <instancesSet>
                 <item>
-                    <instanceId>i-914e244e</instanceId>
+                    <instanceId>i-e094e03f</instanceId>
                     <currentState>
                         <code>32</code>
                         <name>shutting-down</name>
@@ -61,67 +61,5 @@ http_interactions:
             </instancesSet>
         </TerminateInstancesResponse>
     http_version: 
-  recorded_at: Fri, 04 Dec 2015 04:40:12 GMT
-- request:
-    method: post
-    uri: https://ec2.ap-southeast-2.amazonaws.com/
-    body:
-      encoding: UTF-8
-      string: Action=TerminateInstances&InstanceId.1=i-804e245f&Version=2015-10-01
-    headers:
-      Content-Type:
-      - application/x-www-form-urlencoded; charset=utf-8
-      Accept-Encoding:
-      - ''
-      User-Agent:
-      - aws-sdk-ruby2/2.2.3 ruby/2.2.3 x86_64-darwin14
-      X-Amz-Date:
-      - 20151204T044059Z
-      Host:
-      - ec2.ap-southeast-2.amazonaws.com
-      X-Amz-Content-Sha256:
-      - ef6f40dab8f4255444288dfc03d2af9967f21558d33319806987877c82cd7f72
-      Authorization:
-      - "<AUTHORIZATION>"
-      Content-Length:
-      - '68'
-      Accept:
-      - "*/*"
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - text/xml;charset=UTF-8
-      Transfer-Encoding:
-      - chunked
-      Vary:
-      - Accept-Encoding
-      Date:
-      - Fri, 04 Dec 2015 04:40:58 GMT
-      Server:
-      - AmazonEC2
-    body:
-      encoding: UTF-8
-      string: |-
-        <?xml version="1.0" encoding="UTF-8"?>
-        <TerminateInstancesResponse xmlns="http://ec2.amazonaws.com/doc/2015-10-01/">
-            <requestId>eb07bb12-fe9d-47d9-921a-19b240679d28</requestId>
-            <instancesSet>
-                <item>
-                    <instanceId>i-804e245f</instanceId>
-                    <currentState>
-                        <code>32</code>
-                        <name>shutting-down</name>
-                    </currentState>
-                    <previousState>
-                        <code>16</code>
-                        <name>running</name>
-                    </previousState>
-                </item>
-            </instancesSet>
-        </TerminateInstancesResponse>
-    http_version: 
-  recorded_at: Fri, 04 Dec 2015 04:41:00 GMT
+  recorded_at: Mon, 07 Dec 2015 06:20:39 GMT
 recorded_with: VCR 2.9.3

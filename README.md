@@ -72,7 +72,7 @@ Example @groups content:
 
 Example invocation:
 
-    $ AWS_REGION=ap-southeast-2 bundle exec ec2_templater --config example/config.yaml
+    $ AWS_REGION=ap-southeast-2 bundle exec ec2_templater --config example/config.yml
 
 ## Installation
 

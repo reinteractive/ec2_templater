@@ -5,7 +5,7 @@ http_interactions:
     uri: https://ec2.ap-southeast-2.amazonaws.com/
     body:
       encoding: UTF-8
-      string: Action=CreateTags&ResourceId.1=i-914e244e&Tag.1.Key=primary&Tag.1.Value=one&Tag.2.Key=secondary&Tag.2.Value=two&Version=2015-10-01
+      string: Action=DescribeInstances&Filter.1.Name=instance-state-name&Filter.1.Value.1=running&Filter.2.Name=tag%3AEnvironment&Filter.2.Value.1=Production&Filter.3.Name=tag%3ARole&Filter.3.Value.1=app&Version=2015-10-01
     headers:
       Content-Type:
       - application/x-www-form-urlencoded; charset=utf-8
@@ -14,15 +14,15 @@ http_interactions:
       User-Agent:
       - aws-sdk-ruby2/2.2.3 ruby/2.2.3 x86_64-darwin14
       X-Amz-Date:
-      - 20151204T044011Z
+      - 20151207T062038Z
       Host:
       - ec2.ap-southeast-2.amazonaws.com
       X-Amz-Content-Sha256:
-      - a9c9142c985e53144408bed25d9871632c04989d456e64cbe4ecf7eda1b180c8
+      - 02d625ecee1ab192a8c957dc89cb6baaa132a63351f2ca1981592ce03a234e30
       Authorization:
       - "<AUTHORIZATION>"
       Content-Length:
-      - '130'
+      - '208'
       Accept:
       - "*/*"
   response:
@@ -37,107 +37,7 @@ http_interactions:
       Vary:
       - Accept-Encoding
       Date:
-      - Fri, 04 Dec 2015 04:40:11 GMT
-      Server:
-      - AmazonEC2
-    body:
-      encoding: UTF-8
-      string: |-
-        <?xml version="1.0" encoding="UTF-8"?>
-        <CreateTagsResponse xmlns="http://ec2.amazonaws.com/doc/2015-10-01/">
-            <requestId>7546077c-093f-4705-8e6a-c211edb369f8</requestId>
-            <return>true</return>
-        </CreateTagsResponse>
-    http_version: 
-  recorded_at: Fri, 04 Dec 2015 04:40:11 GMT
-- request:
-    method: post
-    uri: https://ec2.ap-southeast-2.amazonaws.com/
-    body:
-      encoding: UTF-8
-      string: Action=CreateTags&ResourceId.1=i-804e245f&Tag.1.Key=primary&Tag.1.Value=one&Tag.2.Key=secondary&Tag.2.Value=two&Version=2015-10-01
-    headers:
-      Content-Type:
-      - application/x-www-form-urlencoded; charset=utf-8
-      Accept-Encoding:
-      - ''
-      User-Agent:
-      - aws-sdk-ruby2/2.2.3 ruby/2.2.3 x86_64-darwin14
-      X-Amz-Date:
-      - 20151204T044058Z
-      Host:
-      - ec2.ap-southeast-2.amazonaws.com
-      X-Amz-Content-Sha256:
-      - b7bc25090fc3282bfd7cc51c9b588d392bb4363f3ddda3401af863f4d005f33a
-      Authorization:
-      - "<AUTHORIZATION>"
-      Content-Length:
-      - '130'
-      Accept:
-      - "*/*"
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - text/xml;charset=UTF-8
-      Transfer-Encoding:
-      - chunked
-      Vary:
-      - Accept-Encoding
-      Date:
-      - Fri, 04 Dec 2015 04:40:57 GMT
-      Server:
-      - AmazonEC2
-    body:
-      encoding: UTF-8
-      string: |-
-        <?xml version="1.0" encoding="UTF-8"?>
-        <CreateTagsResponse xmlns="http://ec2.amazonaws.com/doc/2015-10-01/">
-            <requestId>192b7543-ff98-46ef-bf17-2c8eeb58efbf</requestId>
-            <return>true</return>
-        </CreateTagsResponse>
-    http_version: 
-  recorded_at: Fri, 04 Dec 2015 04:40:58 GMT
-- request:
-    method: post
-    uri: https://ec2.ap-southeast-2.amazonaws.com/
-    body:
-      encoding: UTF-8
-      string: Action=DescribeInstances&Filter.1.Name=instance-state-name&Filter.1.Value.1=running&Filter.2.Name=tag%3Aprimary&Filter.2.Value.1=one&Filter.3.Name=tag%3Asecondary&Filter.3.Value.1=two&Version=2015-10-01
-    headers:
-      Content-Type:
-      - application/x-www-form-urlencoded; charset=utf-8
-      Accept-Encoding:
-      - ''
-      User-Agent:
-      - aws-sdk-ruby2/2.2.3 ruby/2.2.3 x86_64-darwin14
-      X-Amz-Date:
-      - 20151204T044058Z
-      Host:
-      - ec2.ap-southeast-2.amazonaws.com
-      X-Amz-Content-Sha256:
-      - e0c42638ad653d022e94bf005bb214b73ab934c5299a5ae71e33651e72453b7d
-      Authorization:
-      - "<AUTHORIZATION>"
-      Content-Length:
-      - '202'
-      Accept:
-      - "*/*"
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - text/xml;charset=UTF-8
-      Transfer-Encoding:
-      - chunked
-      Vary:
-      - Accept-Encoding
-      Date:
-      - Fri, 04 Dec 2015 04:40:58 GMT
+      - Mon, 07 Dec 2015 06:20:29 GMT
       Server:
       - AmazonEC2
     body:
@@ -145,28 +45,78 @@ http_interactions:
       string: |-
         <?xml version="1.0" encoding="UTF-8"?>
         <DescribeInstancesResponse xmlns="http://ec2.amazonaws.com/doc/2015-10-01/">
-            <requestId>43a91511-7f66-4da5-8142-1b1a2864cc9c</requestId>
+            <requestId>48412e3e-96f0-4c19-8a53-d9776903950d</requestId>
+            <reservationSet/>
+        </DescribeInstancesResponse>
+    http_version: 
+  recorded_at: Mon, 07 Dec 2015 06:20:38 GMT
+- request:
+    method: post
+    uri: https://ec2.ap-southeast-2.amazonaws.com/
+    body:
+      encoding: UTF-8
+      string: Action=DescribeInstances&Filter.1.Name=instance-state-name&Filter.1.Value.1=running&Filter.2.Name=tag%3AEnvironment&Filter.2.Value.1=Staging&Filter.3.Name=tag%3ARole&Filter.3.Value.1=app&Version=2015-10-01
+    headers:
+      Content-Type:
+      - application/x-www-form-urlencoded; charset=utf-8
+      Accept-Encoding:
+      - ''
+      User-Agent:
+      - aws-sdk-ruby2/2.2.3 ruby/2.2.3 x86_64-darwin14
+      X-Amz-Date:
+      - 20151207T062038Z
+      Host:
+      - ec2.ap-southeast-2.amazonaws.com
+      X-Amz-Content-Sha256:
+      - 888b2a3ded69af237b9163c3b8c04fbe3198dd20ae9ee87473e0fe5ba0c71d8d
+      Authorization:
+      - "<AUTHORIZATION>"
+      Content-Length:
+      - '205'
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - text/xml;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      Date:
+      - Mon, 07 Dec 2015 06:20:30 GMT
+      Server:
+      - AmazonEC2
+    body:
+      encoding: UTF-8
+      string: |-
+        <?xml version="1.0" encoding="UTF-8"?>
+        <DescribeInstancesResponse xmlns="http://ec2.amazonaws.com/doc/2015-10-01/">
+            <requestId>e9f999ec-f203-453b-b10f-88d47ef734b2</requestId>
             <reservationSet>
                 <item>
-                    <reservationId>r-f51f0a29</reservationId>
+                    <reservationId>r-694f58b5</reservationId>
                     <ownerId>492770473521</ownerId>
                     <groupSet/>
                     <instancesSet>
                         <item>
-                            <instanceId>i-804e245f</instanceId>
+                            <instanceId>i-e094e03f</instanceId>
                             <imageId>ami-187a247b</imageId>
                             <instanceState>
                                 <code>16</code>
                                 <name>running</name>
                             </instanceState>
-                            <privateDnsName>ip-172-31-2-63.ap-southeast-2.compute.internal</privateDnsName>
-                            <dnsName>ec2-52-62-42-171.ap-southeast-2.compute.amazonaws.com</dnsName>
+                            <privateDnsName>ip-172-31-3-155.ap-southeast-2.compute.internal</privateDnsName>
+                            <dnsName>ec2-52-62-79-7.ap-southeast-2.compute.amazonaws.com</dnsName>
                             <reason/>
                             <keyName>the_adam</keyName>
                             <amiLaunchIndex>0</amiLaunchIndex>
                             <productCodes/>
                             <instanceType>t2.micro</instanceType>
-                            <launchTime>2015-12-04T04:40:18.000Z</launchTime>
+                            <launchTime>2015-12-07T06:19:43.000Z</launchTime>
                             <placement>
                                 <availabilityZone>ap-southeast-2a</availabilityZone>
                                 <groupName/>
@@ -177,8 +127,8 @@ http_interactions:
                             </monitoring>
                             <subnetId>subnet-5ff7683a</subnetId>
                             <vpcId>vpc-d4cd70b1</vpcId>
-                            <privateIpAddress>172.31.2.63</privateIpAddress>
-                            <ipAddress>52.62.42.171</ipAddress>
+                            <privateIpAddress>172.31.3.155</privateIpAddress>
+                            <ipAddress>52.62.79.7</ipAddress>
                             <sourceDestCheck>true</sourceDestCheck>
                             <groupSet>
                                 <item>
@@ -193,9 +143,9 @@ http_interactions:
                                 <item>
                                     <deviceName>/dev/sda1</deviceName>
                                     <ebs>
-                                        <volumeId>vol-3b57e7f1</volumeId>
+                                        <volumeId>vol-ccf64a06</volumeId>
                                         <status>attached</status>
-                                        <attachTime>2015-12-04T04:40:22.000Z</attachTime>
+                                        <attachTime>2015-12-07T06:19:46.000Z</attachTime>
                                         <deleteOnTermination>true</deleteOnTermination>
                                     </ebs>
                                 </item>
@@ -204,26 +154,26 @@ http_interactions:
                             <clientToken/>
                             <tagSet>
                                 <item>
-                                    <key>secondary</key>
-                                    <value>two</value>
+                                    <key>Role</key>
+                                    <value>app</value>
                                 </item>
                                 <item>
-                                    <key>primary</key>
-                                    <value>one</value>
+                                    <key>Environment</key>
+                                    <value>Staging</value>
                                 </item>
                             </tagSet>
                             <hypervisor>xen</hypervisor>
                             <networkInterfaceSet>
                                 <item>
-                                    <networkInterfaceId>eni-2062d847</networkInterfaceId>
+                                    <networkInterfaceId>eni-f14ccd96</networkInterfaceId>
                                     <subnetId>subnet-5ff7683a</subnetId>
                                     <vpcId>vpc-d4cd70b1</vpcId>
                                     <description/>
                                     <ownerId>492770473521</ownerId>
                                     <status>in-use</status>
-                                    <macAddress>02:17:7e:6c:83:0d</macAddress>
-                                    <privateIpAddress>172.31.2.63</privateIpAddress>
-                                    <privateDnsName>ip-172-31-2-63.ap-southeast-2.compute.internal</privateDnsName>
+                                    <macAddress>02:6f:05:18:b7:c5</macAddress>
+                                    <privateIpAddress>172.31.3.155</privateIpAddress>
+                                    <privateDnsName>ip-172-31-3-155.ap-southeast-2.compute.internal</privateDnsName>
                                     <sourceDestCheck>true</sourceDestCheck>
                                     <groupSet>
                                         <item>
@@ -232,25 +182,25 @@ http_interactions:
                                         </item>
                                     </groupSet>
                                     <attachment>
-                                        <attachmentId>eni-attach-f34218cd</attachmentId>
+                                        <attachmentId>eni-attach-5dfdda63</attachmentId>
                                         <deviceIndex>0</deviceIndex>
                                         <status>attached</status>
-                                        <attachTime>2015-12-04T04:40:18.000Z</attachTime>
+                                        <attachTime>2015-12-07T06:19:43.000Z</attachTime>
                                         <deleteOnTermination>true</deleteOnTermination>
                                     </attachment>
                                     <association>
-                                        <publicIp>52.62.42.171</publicIp>
-                                        <publicDnsName>ec2-52-62-42-171.ap-southeast-2.compute.amazonaws.com</publicDnsName>
+                                        <publicIp>52.62.79.7</publicIp>
+                                        <publicDnsName>ec2-52-62-79-7.ap-southeast-2.compute.amazonaws.com</publicDnsName>
                                         <ipOwnerId>amazon</ipOwnerId>
                                     </association>
                                     <privateIpAddressesSet>
                                         <item>
-                                            <privateIpAddress>172.31.2.63</privateIpAddress>
-                                            <privateDnsName>ip-172-31-2-63.ap-southeast-2.compute.internal</privateDnsName>
+                                            <privateIpAddress>172.31.3.155</privateIpAddress>
+                                            <privateDnsName>ip-172-31-3-155.ap-southeast-2.compute.internal</privateDnsName>
                                             <primary>true</primary>
                                             <association>
-                                            <publicIp>52.62.42.171</publicIp>
-                                            <publicDnsName>ec2-52-62-42-171.ap-southeast-2.compute.amazonaws.com</publicDnsName>
+                                            <publicIp>52.62.79.7</publicIp>
+                                            <publicDnsName>ec2-52-62-79-7.ap-southeast-2.compute.amazonaws.com</publicDnsName>
                                             <ipOwnerId>amazon</ipOwnerId>
                                             </association>
                                         </item>
@@ -264,5 +214,55 @@ http_interactions:
             </reservationSet>
         </DescribeInstancesResponse>
     http_version: 
-  recorded_at: Fri, 04 Dec 2015 04:40:59 GMT
+  recorded_at: Mon, 07 Dec 2015 06:20:38 GMT
+- request:
+    method: post
+    uri: https://ec2.ap-southeast-2.amazonaws.com/
+    body:
+      encoding: UTF-8
+      string: Action=DescribeInstances&Filter.1.Name=instance-state-name&Filter.1.Value.1=running&Filter.2.Name=tag%3AEnvironment&Filter.2.Value.1=Production&Filter.3.Name=tag%3ARole&Filter.3.Value.1=app&Version=2015-10-01
+    headers:
+      Content-Type:
+      - application/x-www-form-urlencoded; charset=utf-8
+      Accept-Encoding:
+      - ''
+      User-Agent:
+      - aws-sdk-ruby2/2.2.3 ruby/2.2.3 x86_64-darwin14
+      X-Amz-Date:
+      - 20151207T062038Z
+      Host:
+      - ec2.ap-southeast-2.amazonaws.com
+      X-Amz-Content-Sha256:
+      - 02d625ecee1ab192a8c957dc89cb6baaa132a63351f2ca1981592ce03a234e30
+      Authorization:
+      - "<AUTHORIZATION>"
+      Content-Length:
+      - '208'
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - text/xml;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      Date:
+      - Mon, 07 Dec 2015 06:20:30 GMT
+      Server:
+      - AmazonEC2
+    body:
+      encoding: UTF-8
+      string: |-
+        <?xml version="1.0" encoding="UTF-8"?>
+        <DescribeInstancesResponse xmlns="http://ec2.amazonaws.com/doc/2015-10-01/">
+            <requestId>df37c62c-c5db-4b82-8ad7-81ca7a1d92c8</requestId>
+            <reservationSet/>
+        </DescribeInstancesResponse>
+    http_version: 
+  recorded_at: Mon, 07 Dec 2015 06:20:38 GMT
 recorded_with: VCR 2.9.3

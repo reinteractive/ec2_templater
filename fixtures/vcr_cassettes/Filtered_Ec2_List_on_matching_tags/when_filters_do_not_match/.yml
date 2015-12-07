@@ -5,7 +5,7 @@ http_interactions:
     uri: https://ec2.ap-southeast-2.amazonaws.com/
     body:
       encoding: UTF-8
-      string: Action=DescribeInstances&Filter.1.Name=instance-state-name&Filter.1.Value.1=running&Version=2015-10-01
+      string: Action=DescribeInstances&Filter.1.Name=instance-state-name&Filter.1.Value.1=running&Filter.2.Name=tag%3AEnvironment&Filter.2.Value.1=Staging&Filter.3.Name=tag%3ARole&Filter.3.Value.1=db&Version=2015-10-01
     headers:
       Content-Type:
       - application/x-www-form-urlencoded; charset=utf-8
@@ -14,15 +14,15 @@ http_interactions:
       User-Agent:
       - aws-sdk-ruby2/2.2.3 ruby/2.2.3 x86_64-darwin14
       X-Amz-Date:
-      - 20151204T044017Z
+      - 20151207T062038Z
       Host:
       - ec2.ap-southeast-2.amazonaws.com
       X-Amz-Content-Sha256:
-      - ed94b00bef0829e129f7f32f960d4d3d64396b37d914f5c87e349150c32c2522
+      - f29f74cc87174af10bcad213392b220df9202b8628ae20f6e053498a180f7bf1
       Authorization:
       - "<AUTHORIZATION>"
       Content-Length:
-      - '102'
+      - '204'
       Accept:
       - "*/*"
   response:
@@ -37,7 +37,7 @@ http_interactions:
       Vary:
       - Accept-Encoding
       Date:
-      - Fri, 04 Dec 2015 04:40:17 GMT
+      - Mon, 07 Dec 2015 06:20:30 GMT
       Server:
       - AmazonEC2
     body:
@@ -45,9 +45,9 @@ http_interactions:
       string: |-
         <?xml version="1.0" encoding="UTF-8"?>
         <DescribeInstancesResponse xmlns="http://ec2.amazonaws.com/doc/2015-10-01/">
-            <requestId>b778aae6-e7b6-48b0-b8ca-010c87616079</requestId>
+            <requestId>3b5ef9b4-d945-457e-8209-0af13b9a756d</requestId>
             <reservationSet/>
         </DescribeInstancesResponse>
     http_version: 
-  recorded_at: Fri, 04 Dec 2015 04:40:18 GMT
+  recorded_at: Mon, 07 Dec 2015 06:20:38 GMT
 recorded_with: VCR 2.9.3

@@ -5,9 +5,11 @@ require 'ec2_templater/command_line'
 
 module Ec2Templater
   def self.run(config)
-    Monitor.new(Runner.new(config), config['interval']).run do
+    monitor = Monitor.new(Runner.new(config), config['interval'])
+    monitor.run do
       system(config['notify_cmd'])
     end
+    monitor
   end
 
   def self.logger
