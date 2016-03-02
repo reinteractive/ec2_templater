@@ -9,33 +9,25 @@ Gem::Specification.new do |spec|
   spec.authors       = ['Adam Davies']
   spec.email         = ['adzdavies@gmail.com', 'rubygems@reinteractive.net']
 
-  spec.summary       = 'TODO: Write a short summary, because Rubygems requires one.'
-  spec.description   = 'TODO: Write a longer description or delete this line.'
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.summary       = 'EC2 service discovery by templating your server config'
+  spec.description   = 'Ec2Templater provides a means of EC2 service discovery by templating your server config. It works by periodically querying AWS for the list of running EC2 instances, rendering a template, then running a notify command if it has changed. Using this setup you can provide, for example, a haproxy config that updates based on instances that are available filtered by tag'
+  spec.homepage      = "https://github.com/reinteractive/ec2_templater"
   spec.license       = 'MIT'
-
-  # Prevent pushing this gem to RubyGems.org by setting 'allowed_push_host', or
-  # delete this section to allow pushing this gem to any host.
-  if spec.respond_to?(:metadata)
-    spec.metadata['allowed_push_host'] = "TODO: Set to 'http://mygemserver.com'"
-  else
-    fail 'RubyGems 2.0 or newer is required to protect against public gem pushes.'
-  end
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
   spec.bindir        = 'exe'
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
 
-  spec.add_runtime_dependency 'aws-sdk'
-  spec.add_runtime_dependency 'erubis', '~> 2.7'
-  spec.add_runtime_dependency 'clamp'
+  spec.add_runtime_dependency 'aws-sdk', '~> 2.2'
+  spec.add_runtime_dependency 'erubis',  '~> 2.7'
+  spec.add_runtime_dependency 'clamp',   '~> 1.0'
 
-  spec.add_development_dependency 'bundler', '~> 1.10'
-  spec.add_development_dependency 'rake', '~> 10.0'
-  spec.add_development_dependency 'rspec'
-  spec.add_development_dependency 'vcr', '~> 2.9'
-  spec.add_development_dependency 'webmock'
-  spec.add_development_dependency 'rubocop'
-  spec.add_development_dependency 'pry-byebug'
+  spec.add_development_dependency 'bundler',    '~> 1.10'
+  spec.add_development_dependency 'rake',       '~> 10.0'
+  spec.add_development_dependency 'rspec',      '~> 3.4'
+  spec.add_development_dependency 'vcr',        '~> 2.9'
+  spec.add_development_dependency 'webmock',    '~> 1.24'
+  spec.add_development_dependency 'rubocop',    '~> 0.37'
+  spec.add_development_dependency 'pry-byebug', '~> 3.3'
 end
