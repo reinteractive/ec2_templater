@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.name          = 'ec2_templater'
   spec.version       = Ec2Templater::VERSION
   spec.authors       = ['Adam Davies']
-  spec.email         = ['adzdavies@gmail.com']
+  spec.email         = ['adzdavies@gmail.com', 'rubygems@reinteractive.net']
 
   spec.summary       = 'TODO: Write a short summary, because Rubygems requires one.'
   spec.description   = 'TODO: Write a longer description or delete this line.'
